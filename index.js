@@ -5167,7 +5167,7 @@ function dashboardPage() {
 
     async function loadDashboardData(){
       try {
-        const r=await fetch('/api/dashboard/stats');
+        const r=await fetch('/api/panel/stats');
         const d=await r.json();
         if(!d.success) throw new Error(d.message||'加载失败');
         
@@ -5515,7 +5515,7 @@ const api = {
       }
     }
 
-    if (path === '/dashboard/stats' && method === 'GET') {
+    if (path === '/panel/stats' && method === 'GET') {
       try {
         const subscriptions = await getAllSubscriptions(env);
         const timezone = config?.TIMEZONE || 'UTC';
